@@ -45,4 +45,52 @@ export default arrays;
 
 
 
+/**
+ * Custom Data Structure: Array
+ */
+class CustomArray {
+    constructor() {
+        this.length = 0;
+        this.data = {};
+    }
+
+    get(index) {
+        return this.data[index];
+    }
+
+    push(item) {
+        this.data[this.length] = item
+        this.length++;
+    }
+
+    pop() {
+        const lastItem = this.data[this.length - 1]
+        delete this.data[this.length - 1]
+        this.length--;
+        return lastItem
+    }
+    delete(index) {
+        const item = this.data[index];
+        this.shiftItems(index)
+    }
+
+    // O(n)
+    shiftItems(index) {
+
+        for (let i = index; this.lenth - 1; i++) {
+            this.data[i] = this.data[i + 1];
+        }
+        delete this.data[this.length - 1]
+        this.length--;
+    }
+}
+
+
+const customArray = new CustomArray();
+
+customArray.push('hi');
+customArray.push('you');
+customArray.push('!');
+customArray.pop();
+console.log(customArray.get(0));
 
