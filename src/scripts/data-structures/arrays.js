@@ -5,7 +5,7 @@
  * Static vs Dynamic arrays
  * Programming languages like C++ use static arrays, where the array length must be set, whereas higher level languages use dynamic arrays.
  *
- * Static Arrays: can be faster depending on operationbut require more management within the code
+ * Static Arrays: can be faster depending on operation but require more management within the code
  * Dynamic Arrays: no need to worry about the site of the array, as the programming lnaguage will copy the array and remake it the array size needs to increase (this can effect the Big O of an operation).
  *
  * Array Operations - Big O
@@ -13,6 +13,20 @@
  * - Push/Append: O(1) or O(n) - depending if  a static or dynamic array is in use
  * - Insert: O(n)
  * - Delete: O(n)
+ * 
+ * 
+ * General Rules of Arrays:
+ * 
+ *  Positives:
+ *  - Fast Lookups (using the index)
+ *  - Fast Push/Pop (appending or prepending array elements)
+ *  - Ordered - Having something ordered and close together in memory will help to improve speed
+ * 
+ *  Negatives:
+ * - Slow inserts (due to needing to shift all the array elements)
+ * - Slow Deletes (due to needing to shift all the array elements)
+ * - Fixed Size (when using a static array)
+ * 
  */
 
 const arrays = function () {
