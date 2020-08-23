@@ -30,16 +30,16 @@ const arrays = function () {
     strings.pop(); // O(1)
 
     // add array element to the start of the array
-    strings.unshift('x') // O(n)
+    strings.unshift('x'); // O(n)
 
     // add array element in the middle of the array
     strings.splice(2, 0, 'alien');
 
-    console.log(strings)
+    console.log(strings);
 
     console.log('Data Structure: Arrays - End');
 
-}
+};
 
 export default arrays;
 
@@ -59,19 +59,19 @@ class CustomArray {
     }
 
     push(item) {
-        this.data[this.length] = item
+        this.data[this.length] = item;
         this.length++;
     }
 
     pop() {
-        const lastItem = this.data[this.length - 1]
-        delete this.data[this.length - 1]
+        const lastItem = this.data[this.length - 1];
+        delete this.data[this.length - 1];
         this.length--;
-        return lastItem
+        return lastItem;
     }
     delete(index) {
         const item = this.data[index];
-        this.shiftItems(index)
+        this.shiftItems(index);
     }
 
     // O(n)
@@ -80,7 +80,7 @@ class CustomArray {
         for (let i = index; this.lenth - 1; i++) {
             this.data[i] = this.data[i + 1];
         }
-        delete this.data[this.length - 1]
+        delete this.data[this.length - 1];
         this.length--;
     }
 }
