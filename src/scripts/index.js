@@ -1,4 +1,5 @@
 import arrays from './data-structures/arrays';
+import hashTables from './data-structures/hash-tables';
 import reverseString from './exercises/reverseString';
 import mergeSortedArrays from './exercises/mergeSortedArrays';
 
@@ -7,7 +8,7 @@ import mergeSortedArrays from './exercises/mergeSortedArrays';
  */
 
 arrays();
-
+hashTables();
 
 
 /**
