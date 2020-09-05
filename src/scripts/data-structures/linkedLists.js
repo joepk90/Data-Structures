@@ -66,13 +66,21 @@ let linkedListDataStructure = {
     }
 };
 
+class Node {
+
+    constructor(value) {
+        this.value = value;
+        this.next = null;
+    }
+};
+
 class LinkedList {
 
     constructor(value) {
-        this.head = {
-            value: value,
-            next: null
-        };
+
+        const newNode = new Node(value);
+
+        this.head = newNode;
         this.tail = this.head;
         this.length = 1;
     }
@@ -80,13 +88,20 @@ class LinkedList {
 
     append(value) {
 
-        const newNode = {
-            value: value,
-            next: null
-        };
+        const newNode = new Node(value);
 
         this.tail.next = newNode; // this.tail references this.head. this statement actaully appends the newNode to the head.next node.
         this.tail = newNode;
+        this.length++;
+
+    }
+
+    preppend(value) {
+
+        const newNode = new Node(value);
+
+        newNode.next = this.head;
+        this.head = newNode;
         this.length++;
 
     }
@@ -98,6 +113,7 @@ const linkedList = new LinkedList(10);
 
 linkedList.append(5);
 linkedList.append(16);
+linkedList.preppend(2);
 console.log(linkedList);
 
 console.log('Data Structure: Linked Lists - End');
