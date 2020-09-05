@@ -92,8 +92,12 @@ class LinkedList {
     }
 }
 
+console.log('Data Structure: Linked Lists - Start');
+
 const linkedList = new LinkedList(10);
 
 linkedList.append(5);
 linkedList.append(16);
 console.log(linkedList);
+
+console.log('Data Structure: Linked Lists - End');
