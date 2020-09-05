@@ -31,6 +31,8 @@
  * - More complex
  * - More memory
  * 
+ * 
+ * TODO refactor reverse methods
  */
 
 
@@ -162,6 +164,8 @@ class LinkedList {
             currentNode = currentNode.next;
         }
         console.log('List Values: ', array);
+
+        return array;
     }
 
     remove(index) {
@@ -177,6 +181,55 @@ class LinkedList {
         this.length--;
 
     }
+
+    inefficientRevers() {
+
+        const listValues = this.printListValues();
+        let reversedList = null;
+        listValues.forEach((value) => {
+
+            if (reversedList === null) {
+                return reversedList = new LinkedList(value);
+            }
+
+            return reversedList.preppend(value);
+
+        });
+
+        return reversedList;
+
+    }
+
+    /**
+     * Efficient Reversal
+     * 
+     * This method seems wrong to me...
+     * TODO make compatible with double Linked Lists
+     */
+    efficientReverse() {
+
+        if (this.length === 1) {
+            return this.head;
+        }
+
+        let first = this.head;
+        this.tail = this.head;
+        let second = first.next;
+        while (second) {
+            const temp = second.next;
+            second.next = first;
+            first = second;
+            second = temp;
+        }
+
+        this.head.next = null;
+        this.head = first;
+
+        return this.head;
+
+    }
+
+
 
 }
 
@@ -195,5 +248,6 @@ linkedList.remove(2);
 console.log('List Data: ', linkedList);
 linkedList.printListValues();
 
+console.log('Reversed List: ', linkedList.efficientReverse());
 
 console.log('Data Structure: Linked Lists - End');
