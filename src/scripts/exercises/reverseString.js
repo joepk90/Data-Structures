@@ -16,4 +16,5 @@ function reverseString(string) {
 
 }
 
-export default reverseString;
+console.log('Exercise - reverseString: ', reverseString('I am Joe'));
+

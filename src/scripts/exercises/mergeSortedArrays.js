@@ -1,5 +1,4 @@
 /**
-import { forEach } from 'core-js/fn/dict';
  * 
  * Exercise - Merge Sorted Arrays
  * 
@@ -46,4 +45,4 @@ function mergeSortedArrays(firstArray, secondArray) {
 
 }
 
-export default mergeSortedArrays;
+console.log('Exercise - mergeSortedArrays: ', mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));

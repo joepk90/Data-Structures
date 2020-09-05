@@ -37,7 +37,7 @@ function findFirstRecurringCharacter(inputArray) {
     });
 }
 
-function hashTableExample() {
+function hashTablesExample() {
 
     console.log('Hash Table Examples Start');
 
@@ -58,5 +58,5 @@ function hashTableExample() {
 
 }
 
-export default hashTableExample;
+console.log('Exercise - Hash Tables: ', hashTablesExample());
 

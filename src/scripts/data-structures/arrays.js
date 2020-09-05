@@ -55,7 +55,7 @@ const arrays = function () {
 
 };
 
-export default arrays;
+arrays();
 
 
 

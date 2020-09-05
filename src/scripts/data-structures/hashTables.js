@@ -157,4 +157,4 @@ function hashTableExample() {
 
 }
 
-export default hashTableExample;
+hashTableExample();
