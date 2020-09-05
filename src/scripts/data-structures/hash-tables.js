@@ -17,8 +17,15 @@
  * - Insert: O(1)
  * - Delete: O(1) 
  * 
+ * Positives:
+ * - Fast Lookups
+ * - Fast Inserts
+ * - Flexible keys
+ * 
  * Negatives:
- * - Operations occasions become O(n) due to collisions in memory
+ * - Unordered
+ * - Slow key Iteration
+ * - Operations occasionally become O(n) due to collisions in memory
  * - (it's actually O(n) devided by size of elements in menory: O(n/elements)
  * 
  * Collision Resolutions: https://en.wikipedia.org/wiki/Hash_table
