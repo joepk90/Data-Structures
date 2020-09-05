@@ -144,6 +144,20 @@ class LinkedList {
         console.log('List Values: ', array);
     }
 
+    remove(index) {
+
+        if (index >= this.length) {
+            return;
+        }
+
+        const leader = this.traverseToIndex(index - 1);
+
+        leader.next = leader.next.next;
+
+        this.length--;
+
+    }
+
 }
 
 console.log('Data Structure: Linked Lists - Start');
@@ -155,6 +169,8 @@ linkedList.append(16);
 linkedList.preppend(2);
 linkedList.insert(2, 99);
 linkedList.insert(30, 7);
+
+linkedList.remove(2);
 
 console.log('List Data: ', linkedList);
 linkedList.printListValues();
