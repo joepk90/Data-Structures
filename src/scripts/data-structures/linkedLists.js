@@ -16,6 +16,20 @@
  * - Javascript 
  *
  * 
+ * Linked List Positives:
+ * - Fast insertion
+ * - Fast deletion
+ * - Ordered
+ * - Flexible size
+ * 
+ * Linked List Negatives:
+ * - SLow lookups
+ * - More memory
+ * 
+ * Linked List vs Array:
+ * - Linked Lists are simpler
+ * - Linked Lists can grow as needed
+ * 
  * 
  * Double Linked Lists vs Single Linked Lists
  * 
