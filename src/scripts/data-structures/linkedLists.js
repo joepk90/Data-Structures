@@ -15,8 +15,23 @@
  * Not all langauges have lined lists built in:
  * - Javascript 
  *
+ * 
+ * 
+ * Double Linked Lists vs Single Linked Lists
+ * 
+ * Single Linked Lists:
+ * + Simple implementation
+ * + Less memory
+ * + Slightly faster (fast insertion/deletion)
+ * - Reverse Iteration not possible
+ * - Possible to loose the list in memoery (loosing the head node)
+ * 
+ *  Double Linked Lists:
+ * - Forwards and backwards iteraration
+ * - More complex
+ * - More memory
+ * 
  */
-
 
 
 /**
