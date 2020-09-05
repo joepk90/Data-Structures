@@ -93,7 +93,6 @@ class LinkedList {
         this.tail.next = newNode; // this.tail references this.head. this statement actaully appends the newNode to the head.next node.
         this.tail = newNode;
         this.length++;
-
     }
 
     preppend(value) {
@@ -103,8 +102,18 @@ class LinkedList {
         newNode.next = this.head;
         this.head = newNode;
         this.length++;
-
     }
+
+    printListValues() {
+        const array = [];
+        let currentNode = this.head;
+        while (currentNode !== null) {
+            array.push(currentNode.value);
+            currentNode = currentNode.next;
+        }
+        console.log('List Values: ', array);
+    }
+
 }
 
 console.log('Data Structure: Linked Lists - Start');
@@ -114,6 +123,9 @@ const linkedList = new LinkedList(10);
 linkedList.append(5);
 linkedList.append(16);
 linkedList.preppend(2);
-console.log(linkedList);
+
+console.log('List Data: ', linkedList);
+linkedList.printListValues();
+
 
 console.log('Data Structure: Linked Lists - End');
