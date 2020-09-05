@@ -76,8 +76,24 @@ class LinkedList {
         this.tail = this.head;
         this.length = 1;
     }
+
+
+    append(value) {
+
+        const newNode = {
+            value: value,
+            next: null
+        };
+
+        this.tail.next = newNode; // this.tail references this.head. this statement actaully appends the newNode to the head.next node.
+        this.tail = newNode;
+        this.length++;
+
+    }
 }
 
 const linkedList = new LinkedList(10);
 
+linkedList.append(5);
+linkedList.append(16);
 console.log(linkedList);
