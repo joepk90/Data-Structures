@@ -71,6 +71,7 @@ class Node {
     constructor(value) {
         this.value = value;
         this.next = null;
+        this.prev = null;
     }
 };
 
@@ -90,6 +91,8 @@ class LinkedList {
 
         const newNode = new Node(value);
 
+        newNode.prev = this.tail;
+
         this.tail.next = newNode; // this.tail references this.head. this statement actaully appends the newNode to the head.next node.
         this.tail = newNode;
         this.length++;
@@ -100,6 +103,7 @@ class LinkedList {
         const newNode = new Node(value);
 
         newNode.next = this.head;
+        this.head.prev = newNode;
         this.head = newNode;
         this.length++;
     }
@@ -127,6 +131,7 @@ class LinkedList {
 
         const leader = this.traverseToIndex(index - 1);
 
+        newNode.prev = leader;
         newNode.next = leader.next;
         leader.next = newNode;
 
