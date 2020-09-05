@@ -41,19 +41,19 @@ const basket = ['apples', 'grapes', 'pears'];
  */
 
 let objectOne = { a: true };
-let objectTwo = ObjectOne; // object two will point to the same reference in memory as objectOne
+let objectTwo = objectOne; // object two will point to the same reference in memory as objectOne
 
 objectOne.a = 'false';
-delete ObjectOne;
+delete objectOne.a;
 
 // enabling the following line would remove the original object ({a: true}) from memory (JS memory management: garbage collection)
 // objectOne.a = 'hello';
 
 // both objectOne and objectTwo will change: objectTwo.a will also equal false
 // console.log('objectOne: ', objectOne);
-console.log('objectTwo: ', objectTwo);
+// console.log('objectTwo: ', objectTwo);
 
-let linkedList = {
+let linkedListDataStructure = {
     head: {
         value: 10,
         next: {
@@ -67,11 +67,12 @@ let linkedList = {
 };
 
 class LinkedList {
+
     constructor(value) {
         this.head = {
             value: value,
             next: null
-        }
+        };
         this.tail = this.head;
         this.length = 1;
     }
