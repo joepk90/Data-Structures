@@ -106,6 +106,22 @@ class HashTable {
 
     };
 
+    /**
+     * keys method:
+     * O(n)
+     */
+    keys() {
+        const keysArray = [];
+
+        for (let i = 0; i < this.data.length; i++) {
+
+            if (this.data[i]) {
+                keysArray.push(this.data[i][0][0]);
+            }
+        }
+
+        return keysArray;
+    }
 }
 
 function hashTableExample() {
@@ -122,6 +138,11 @@ function hashTableExample() {
 
     hashTable.set('apples', 9);
     console.log(hashTable.get('apples'));
+
+    hashTable.set('oranges', 2);
+    console.log(hashTable.get('oranges'));
+
+    console.log('keys: ', hashTable.keys());
 
     // console.log(hashTable.data);
 
