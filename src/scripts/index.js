@@ -5,6 +5,7 @@
 // import './data-structures/hashTables';
 // import './data-structures/linkedLists';
 // import './data-structures/stacks';
+// import './data-structures/queues';
 
 
 /**
