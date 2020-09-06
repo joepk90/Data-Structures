@@ -18,3 +18,18 @@
 
 
 
+
+
+/**
+ * Javascript: Single Threaded (One Call Stack)
+ *
+ * Call Stack: First In Last Out
+ *
+ * Javascript Run Time Environment
+ * - Web API's (DOM, AJAX, Timeout)
+ * - Event Loop
+ * - Call back Queue
+ *
+ * Multi Threaded: Multiple Call Stacks
+ * - Multi Threaded environemnts can cause complications (deadlocks)
+ */
