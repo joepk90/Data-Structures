@@ -63,6 +63,57 @@ class BinarySearchTree {
 
     insert(value) {
 
+        let newNode = new Node(value);
+
+        if (this.root === null) {
+            this.root = newNode;
+            return;
+        }
+
+        let currentNode = this.root;
+        let testNode = this.root;
+        while (testNode !== null) {
+
+            if (currentNode === null) {
+
+                currentNode = newNode;
+
+                testNode = null;
+
+            }
+            else if (value > currentNode.value) {
+
+                if (currentNode.right === null) {
+
+                    currentNode.right = newNode;
+
+                    testNode = null;
+
+                } else {
+                    currentNode = currentNode.right;
+
+                }
+
+            }
+            else if (value < currentNode.value) {
+
+                if (currentNode.left === null) {
+
+                    currentNode.left = newNode;
+
+                    testNode = null;
+
+                }
+                else {
+                    currentNode = currentNode.left;
+                }
+
+            } else {
+                console.log('this number already exists');
+                testNode = null;
+            }
+
+        }
     }
 
     lookup(value) {
