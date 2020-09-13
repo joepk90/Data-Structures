@@ -130,10 +130,46 @@ class BinarySearchTree {
     }
 
 
-    remove() {
+    remove(value) {
+
+
+        let currentNode = this.root;
+        let testNode = this.root;
+        while (testNode !== null) {
+
+            let nextRightValue = !currentNode.right ? null : currentNode.right;
+            let nextLeftValue = !currentNode.left ? null : currentNode.left;
+
+            if (nextRightValue !== null && value > nextRightValue.value) {
+                currentNode = currentNode.right;
+            } else if (nextLeftValue !== null && value < nextLeftValue.value) {
+                currentNode = currentNode.left;
+            } else if ((nextRightValue !== null && value === nextRightValue.value) || (nextLeftValue !== null && value === nextLeftValue.value)) {
+                testNode = null;
+            } else {
+                console.log('cannot remove - node does not exist');
+                testNode = null;
+            }
+
+        }
+
+        // TODO not working dynamically...
+
+        let newNode = traverse(currentNode.right.right);
+        newNode.left = currentNode.right.left;
+        newNode.right = currentNode.right.right.right;
+
+        currentNode.right = newNode;
 
     }
 
+}
+
+function traverse(node) {
+    const tree = { value: node.value };
+    tree.left = node.left === null ? null : traverse(node.left);
+    tree.right = node.right === null ? null : traverse(node.right);
+    return tree;
 }
 
 console.log('Data Structure: Trees - Start');
@@ -146,6 +182,7 @@ searchTree.insert(20);
 searchTree.insert(170);
 searchTree.insert(15);
 searchTree.insert(1);
+searchTree.remove(20);
 
 console.log('Node Lookup: ', searchTree.lookup(20));
 
