@@ -105,6 +105,28 @@ class BinarySearchTree {
 
     lookup(value) {
 
+        let currentNode = this.root;
+
+        while (currentNode !== null) {
+
+            if (value < currentNode.value) {
+
+                currentNode = currentNode.left;
+
+            } else if (value > currentNode.value) {
+
+                currentNode = currentNode.right;
+
+            } else if (value === currentNode.value) {
+
+                return currentNode;
+
+            }
+
+            return false;
+
+        }
+
     }
 
 
@@ -124,6 +146,8 @@ searchTree.insert(20);
 searchTree.insert(170);
 searchTree.insert(15);
 searchTree.insert(1);
+
+console.log('Node Lookup: ', searchTree.lookup(20));
 
 //     9
 //  4     20
