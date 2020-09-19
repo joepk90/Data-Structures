@@ -1,6 +1,6 @@
 /**
  * Graphs
- *
+ * 
  * One of the most useful and used data structure  in computer science when it comes to ...modelling real life
  *
  * A graph a set of values that are related in a pair wise fashion
@@ -15,5 +15,57 @@
  * - Google Maps: To determine the shortest path
  *
  * Directed and Undirected Graphs
+ * - Are connections between nodes bi-directional, or do the nodes only connect one way?
+ * 
+ * Weighted and Unweighted Graphs
+ * edges contain weights (i.e connection between cities on Google maps to work out the shortest distance)
+ * 
+ * Cyclic vs Acyclic
+ * - if a graph is connected similarly to a circle
+ * 
+ * Example Graph Names: 
+ * - Directed Acyclic Graph
+ * - Undirected ACyclic Graph
+ * - Directed Weighted Graph
+ * - Directed Cyclic Grapch
+ */
+
+
+/**
+ * Example Graph Structures
+ * https://visualgo.net/en/graphds
+ * 
+ * 
+ *          2 ------------0
+ *         /  \
+ *        /    \
+ *       /      \
+ *      1        3
  *
  */
+
+/*
+ * Edge List Example
+ */
+
+const edgeListGraph = [[0, 2], [2, 3], [2, 1], [1, 3]];
+
+
+/*
+ * Adjacent List Example
+ */
+
+// index:      0      1        2        3
+const adjacentListGraph = [[2], [2, 3], [0, 1, 3], [1, 2]];
+
+/*
+ * Adjacent Matrix
+ * 0 = false
+ * 1 = true
+ */
+const adjacentMatrixGraph = [
+    [0, 0, 1, 0], // index 0 is connected to 2
+    [0, 0, 1, 1], // index 1 is connected to 2 and 3
+    [1, 1, 0, 1], // index 2 is connected to 0, 1 and 3
+    [0, 1, 1, 0], // index 3 is connected to 1 and 2
+];
