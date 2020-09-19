@@ -69,3 +69,42 @@ const adjacentMatrixGraph = [
     [1, 1, 0, 1], // index 2 is connected to 0, 1 and 3
     [0, 1, 1, 0], // index 3 is connected to 1 and 2
 ];
+
+
+/**
+ * Example of creating an undirected, unqeighted graph using the Adjacency List / Hash Table
+ */
+
+class Graph {
+    constructor() {
+        this.numberOfNodes = 0;
+        this.adjacentList = {
+        };
+    }
+    addVertex(node) {
+    }
+    addEdge(node1, node2) {
+        //undirected Graph 
+    }
+}
+
+console.log('Data Structure: Graphs - Start');
+
+const graph = new Graph();
+graph.addVertex('0');
+graph.addVertex('1');
+graph.addVertex('2');
+graph.addVertex('3');
+graph.addVertex('4');
+graph.addVertex('5');
+graph.addVertex('6');
+graph.addEdge('3', '1');
+graph.addEdge('3', '4');
+graph.addEdge('4', '2');
+graph.addEdge('4', '5');
+graph.addEdge('1', '2');
+graph.addEdge('1', '0');
+graph.addEdge('0', '2');
+graph.addEdge('6', '5');
+
+console.log('Data Structure: Graphs - End');
