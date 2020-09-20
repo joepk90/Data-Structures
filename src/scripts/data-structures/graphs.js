@@ -82,9 +82,29 @@ class Graph {
         };
     }
     addVertex(node) {
+
+        if (Array.isArray(this.adjacentList[node])) return 'Node exists!';
+
+        this.adjacentList[node] = [];
+        this.numberOfNodes++;
+
     }
+
     addEdge(node1, node2) {
-        //undirected Graph 
+
+        if (!this.adjacentList[node1] || !this.adjacentList[node2]) return 'One or both Nodes do not exist!';
+
+        const doesNode1EdgeExist = this.adjacentList[node1].includes(node2); // O(n) - use a linked list?
+        const doesNode2EdgeExist = this.adjacentList[node2].includes(node1); // O(n) - use a linked list?
+
+        if (!doesNode1EdgeExist) {
+            this.adjacentList[node1].push(node2);
+        }
+
+        if (!doesNode2EdgeExist) {
+            this.adjacentList[node2].push(node1);
+        }
+
     }
 }
 
