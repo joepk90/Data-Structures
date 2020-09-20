@@ -70,17 +70,17 @@ const adjacentMatrixGraph = [
     [0, 1, 1, 0], // index 3 is connected to 1 and 2
 ];
 
-
 /**
  * Example of creating an undirected, unqeighted graph using the Adjacency List / Hash Table
  */
 
 class Graph {
+
     constructor() {
         this.numberOfNodes = 0;
-        this.adjacentList = {
-        };
+        this.adjacentList = {};
     }
+
     addVertex(node) {
 
         if (Array.isArray(this.adjacentList[node])) return 'Node exists!';
@@ -106,6 +106,19 @@ class Graph {
         }
 
     }
+
+    showConnections() {
+        const allNodes = Object.keys(this.adjacentList);
+        for (let node of allNodes) {
+            let nodeConnections = this.adjacentList[node];
+            let connections = "";
+            let vertex;
+            for (vertex of nodeConnections) {
+                connections += vertex + " ";
+            }
+            console.log(node + "-->" + connections);
+        }
+    }
 }
 
 console.log('Data Structure: Graphs - Start');
@@ -126,5 +139,16 @@ graph.addEdge('1', '2');
 graph.addEdge('1', '0');
 graph.addEdge('0', '2');
 graph.addEdge('6', '5');
+
+console.log(graph);
+graph.showConnections();
+//Answer:
+// 0-->1 2 
+// 1-->3 2 0 
+// 2-->4 1 0 
+// 3-->1 4 
+// 4-->3 2 5 
+// 5-->4 6 
+// 6-->5
 
 console.log('Data Structure: Graphs - End');
