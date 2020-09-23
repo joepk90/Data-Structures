@@ -129,38 +129,118 @@ class BinarySearchTree {
 
     }
 
+    mergeNodes(targetNode, parentNode) {
 
-    remove(value) {
+        // find the right child's left most child
+        let leftMostNode = targetNode.right.left;
+        let leftMostParent = targetNode.right;
 
+        while (leftMostNode.left !== null) {
+            leftMostParent = leftMostNode;
+            leftMostNode = leftMostNode.left;
+        }
+
+        // parent's left subtree is now left most node's right subtree
+        leftMostParent.left = leftMostNode.right;
+        leftMostNode.left = targetNode.left;
+        leftMostNode.right = targetNode.right;
+
+        if (parentNode === null) {
+            this.root = leftMostNode;
+        } else {
+            if (targetNode.value < parentNode.value) {
+                parentNode.left = leftMostNode;
+            } else if (targetNode.value > parentNode.value) {
+                parentNode.right = leftMostNode;
+            }
+        }
+
+        return parentNode;
+
+    }
+
+    // returns the target node to delete and the parent of the target node
+    findTargetNodeAndParent(value) {
 
         let currentNode = this.root;
-        let testNode = this.root;
-        while (testNode !== null) {
+        let parentNode = null;
+        let targetNode = null;
+        while (currentNode !== null) {
 
-            let nextRightValue = !currentNode.right ? null : currentNode.right;
-            let nextLeftValue = !currentNode.left ? null : currentNode.left;
+            if (currentNode.left !== null && value < currentNode.value) {
 
-            if (nextRightValue !== null && value > nextRightValue.value) {
-                currentNode = currentNode.right;
-            } else if (nextLeftValue !== null && value < nextLeftValue.value) {
+                parentNode = currentNode;
                 currentNode = currentNode.left;
-            } else if ((nextRightValue !== null && value === nextRightValue.value) || (nextLeftValue !== null && value === nextLeftValue.value)) {
-                testNode = null;
+
+            } else if (currentNode.right !== null && value > currentNode.value) {
+
+                parentNode = currentNode;
+                currentNode = currentNode.right;
+
+            } else if (currentNode.value !== null && currentNode.value === value) {
+
+                targetNode = currentNode;
+                break;
+
             } else {
-                console.log('cannot remove - node does not exist');
-                testNode = null;
+                return false;
             }
 
         }
 
-        // TODO not working dynamically...
+        return {
+            parentNode,
+            targetNode
+        };
+    }
 
-        let newNode = traverse(currentNode.right.right);
-        newNode.left = currentNode.right.left;
-        newNode.right = currentNode.right.right.right;
 
-        currentNode.right = newNode;
+    reorderNodes(targetNode, parentNode, direction = 'left') {
 
+        // if the target node is the root and the child node indended direction does not exist, 
+        // delete the root node and move the node in the opporsite direction into it's place
+        if (parentNode === null) {
+            this.root = targetNodes[direction];
+        }
+
+        // if parent is greater then current value, make current left child a child of the parent
+        if (targetNode.value < parentNode.value) {
+            parentNode.left = targetNode[direction];
+        } else if (targetNode.value > parentNode.value) {
+            parentNode.right = targetNode[direction];
+        }
+
+    }
+
+    remove(value) {
+
+        if (!this.root) {
+            return false;
+        }
+
+        const targetNodes = this.findTargetNodeAndParent(value);
+
+        if (targetNodes === false) {
+            return false;
+        }
+
+        let { parentNode, targetNode } = targetNodes;
+
+        if (targetNode.right === null) {
+
+            this.reorderNodes(targetNode, parentNode, 'left');
+
+        } else if (targetNode.right.left === null) {
+
+            targetNode.right.left = targetNode.left;
+
+            this.reorderNodes(targetNode, parentNode, 'right');
+
+        } else {
+
+            this.mergeNodes(targetNode, parentNode);
+
+        }
     }
 
 }
