@@ -262,14 +262,23 @@ searchTree.insert(20);
 searchTree.insert(170);
 searchTree.insert(15);
 searchTree.insert(1);
+searchTree.insert(2);
+searchTree.insert(5);
+searchTree.insert(8);
+searchTree.insert(10);
+searchTree.insert(16);
+searchTree.insert(150);
+searchTree.insert(180);
+
 searchTree.remove(20);
 
 console.log('Node Lookup: ', searchTree.lookup(20));
 
-//     9
-//  4     20
-//1  6  15  170
+//         9
+//     4     20
+//   1  6  15  170
+// 0   2   5   8  10   16  150   180
 
-console.log('Tree: ', searchTree);
+console.log('Tree: ', traverse(searchTree.root));
 
 console.log('Data Structure: Trees - End');
